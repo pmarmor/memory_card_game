@@ -1,0 +1,133 @@
+html{
+    height: 100%;
+    background: url(raichuBackground.jpg);
+    background-size:cover;
+}
+body{
+    font-family: sans-serif ;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input{
+    position: absolute;
+    margin: auto;
+    top: 100px;
+    background:url(pokeball.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-shadow: 0 0 3px black;
+    color: white;
+    padding: 100px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 2s;
+}
+input:hover{
+    transform: scale(1.2);
+    color: black;
+    background-color: rgb(255, 213, 0);
+}
+td{
+    transform: scale(1);
+    padding: 0;
+    height: 212px;
+    max-height: 212px;
+width: 150px;
+max-width: 150px !important;
+    cursor: pointer;
+}
+h2{
+    text-align: center;
+    background-color: rgb(255, 49, 49);
+    border-radius: 20px;
+    padding: 10px;
+    width: 40%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#final{
+    position: absolute;
+    top: 0;
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    padding: 10px;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    transition: 1s;
+    display: none;
+}
+#fondoFinal{
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    left: -2000px;
+    background-color: rgba(100, 255, 183, 0.795);
+    padding: 10px;
+    width: 100%;
+
+    height: 100%;
+    animation: moveBackground 2s forwards ease-out;
+}
+#final img:not(#crown){
+    position: absolute;
+    left: -0px;
+   
+    width: 200vh;
+    animation: movePokeball 5s forwards;
+}
+#crown{
+    display: none;
+    opacity: 0;
+    animation: newRecord 1s infinite step-end;
+}
+@keyframes newRecord {
+   50%{transform: scale(1.2);}
+   100%{transform: scale(1);}
+  }
+@keyframes moveBackground {
+    from {left: -3130px;}
+    to {left: 0px;}
+  }
+@keyframes movePokeball {
+  from {left: -2000px; z-index: 1;}
+  to {left: 2000px;}
+}
+td img{
+ 
+    height: 212px;
+    max-height: 212px;
+width: 150px;
+max-width: 150px !important;
+    transition: 0.6s; 
+}
+td:hover{
+    position: relative;
+    z-index: 1;
+}
+table img:hover{
+    transform: scale(1.1) ;z-index: 1;
+}
+table{
+  
+    position: absolute;
+    top: -2.7%;
+    background-color: #a3a262a4;
+    padding: 10px;
+    margin: 50px auto;
+    border: solid rgb(255, 136, 0);
+    box-shadow: 0 0 30px yellow;
+    border-radius: 30px;
+}
+#contenido{
+    font-size: 30px;
+}
