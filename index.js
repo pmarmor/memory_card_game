@@ -39,6 +39,10 @@ function creaParejas() {
         cartas.splice(num2, 1)
 
     }
+    for (let i = 0; i < parejas.length; i++) {
+        new Image().src = parejas[i];
+        
+    }
 }
 /**
  * Crea la tabla
