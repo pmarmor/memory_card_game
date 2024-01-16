@@ -39,6 +39,7 @@ function creaParejas() {
         cartas.splice(num2, 1)
 
     }
+    //Precarga de imágenes
     for (let i = 0; i < parejas.size; i++) {
         new Image().src = parejas.get(i);
         
