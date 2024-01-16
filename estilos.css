@@ -12,6 +12,7 @@ body{
     justify-content: center;
 }
 input{
+    border: none;
     position: absolute;
     margin: auto;
     top: 100px;
