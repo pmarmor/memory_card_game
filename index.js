@@ -9,7 +9,7 @@ let carta1 = 0  //primera carta pulsada
 let carta2 = 0  //Segunda carta pulsada
 let correcto = 0  //Almacena las parejas encontradas
 let intentos = 0    //Almacena los intentos
-
+new Image().src ="pokemon.png";
 /**
  * Crea la interfaz de inicio
  */
@@ -39,8 +39,8 @@ function creaParejas() {
         cartas.splice(num2, 1)
 
     }
-    for (let i = 0; i < parejas.length; i++) {
-        new Image().src = parejas[i];
+    for (let i = 0; i < parejas.size; i++) {
+        new Image().src = parejas.get(i);
         
     }
 }
