@@ -162,22 +162,27 @@ function endGame() {
     document.getElementById("tabla").style.opacity = "0"
 
     let score = { tiempo: segundo + 1, intentos: intentos, }
-    let cookie = localStorage.getItem('score')
+    let cookie = retriveCookie('score')
+    cookie=JSON.parse(cookie.split('=')[1])
 
-    if (typeof cookie == "undefined" || cookie==null) {
-        localStorage.setItem('score',JSON.stringify(score))
-        console.log('nulo')
+    if (typeof cookie == "undefined") {
+        document.cookie = 'score=' + JSON.stringify(score);
+        cookie = 0
+
     }
-    try {
+    try {/*
+        cookie = retriveCookie('score')
+        cookie = cookie.substring(6, cookie.length)
+        cookie = JSON.parse(cookie);
+*/
         setTimeout(() => {
-            cookie = localStorage.getItem('score')
-            cookie=JSON.parse(cookie)
-            console.log('cookie: ', cookie.intentos);
+
             document.getElementById("contenido").style.opacity = '0'
             document.getElementById("finalH1").style.transition = '1s'
             document.getElementById("finalH1").style.opacity = '0'
 
             setTimeout(() => {
+                console.log(cookie)
                 document.getElementById("finalH1").style.display = 'none'
                 document.getElementById("contenido").style.transition = '1s'
                 document.getElementById("cookieTiempo").innerHTML = "Tiempo récord: " + cookie.tiempo
@@ -189,14 +194,14 @@ function endGame() {
                 document.getElementById("contenido").style.opacity = '1'
                 if (cookie.intentos > score.intentos) {
                     textoAlert = '¡Nuevo récord!\n'
-                    localStorage.setItem('score',JSON.stringify(score))
+                    document.cookie = 'score=' + JSON.stringify(score);
                     document.getElementById("crown").style.display = "block"
                     document.getElementById("crown").style.opacity = "1"
 
                 }
                 else if (cookie.tiempo > score.tiempo && cookie.intentos == score.intentos) {
                     textoAlert = '¡Nuevo récord!\n'
-                    localStorage.setItem('score',JSON.stringify(score))
+                    document.cookie = 'score=' + JSON.stringify(score);
                     document.getElementById("crown").style.display = "block"
                     document.getElementById("crown").style.opacity = "1"
                 }
@@ -211,8 +216,10 @@ function endGame() {
                 }, 4000)
             }, 800)
         }, 4100)
+
+        console.log(score)
     } catch (error) {
-       // console.log('la cookie no existe todavía, por lo que acaba de crearse')
+        console.log('la cookie no existe todavía, por lo que acaba de crearse')
     }
 
 }
